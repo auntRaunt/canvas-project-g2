@@ -3,11 +3,13 @@
  * ==================================
  ***********************************************/
 class DrawingLine extends PaintFunction {
+  // This class extends the PaintFunction class
   constructor(contextReal) {
     super();
     this.context = contextReal;
   }
 
+  // On mouse down, ensure that the pen has these features
   onMouseDown(coord, event) {
     this.context.strokeStyle = "#df4b26";
     this.context.lineJoin = "round";

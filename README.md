@@ -1,7 +1,8 @@
 # Canvas Application :rocket:
 
 ### How to run this package
-- Make sure you clone the repository 
+
+- Make sure you clone the repository
 
 - Double click on index.html
 
@@ -37,8 +38,8 @@ In the javascript folder, there are various functionalities for the canvas appli
 **ERROR**: :gear:
 **RESOLUTION**: :key:
 
-| Issue                | Where it occurs | Possible solution | Actual solution |
-| -------------------- | :-------------: | :---------------: | :-------------: |
-| Creating a checklist |        H        |       2hrs        |     2.5hrs      |
+| Issue             | Where it occurs |  Possible solution   |   Actual solution    |
+| ----------------- | :-------------: | :------------------: | :------------------: |
+| Unsure what to do |        H        | Creating a checklist | Creating a checklist |
 
 #### What is one thing that I learned from doing this project? :books:
