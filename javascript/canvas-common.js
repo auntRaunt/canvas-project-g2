@@ -2,6 +2,7 @@
  * The Canvas
  * ==================================
  ***********************************************/
+
 let canvasReal = document.getElementById("canvas-real");
 let contextReal = canvasReal.getContext("2d");
 let canvasDraft = document.getElementById("canvas-draft");
