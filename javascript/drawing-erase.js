@@ -1,15 +1,42 @@
+/**********************************************
+ * Eraser
+ * ==================================
+ ***********************************************/
 class Erase extends PaintFunction {
-  constructor(contextReal, contextDraft) {
+  // This class extends the PaintFunction class
+  constructor(contextReal) {
     super();
-    this.contextReal = contextReal;
-    this.contextDraft = contextDraft;
+    this.context = contextReal;
   }
-  onMouseDown(coords, event) {
-    
+
+
+  /*
+  For now, everything is the same as the pen feature. 
+  The Eraser becomes different when background colors are implemented, as it has to get the color of the new background, and automatically switch to that.
+  */
+ 
+  // On mouse down, ensure that the pen has these features
+  onMouseDown(coord, event) {
+    this.context.strokeStyle = "#ffffff"; 
+    this.context.lineJoin = "round";
+    this.context.lineWidth = 5;
+    this.context.beginPath();
+    this.context.moveTo(coord[0], coord[1]);
+    this.draw(coord[0], coord[1]);
   }
-  onDragging() {}
+  onDragging(coord, event) {
+    this.draw(coord[0], coord[1]);
+  }
+
   onMouseMove() {}
   onMouseUp() {}
   onMouseLeave() {}
   onMouseEnter() {}
+
+  draw(x, y) {
+    this.context.lineTo(x, y);
+    this.context.moveTo(x, y);
+    this.context.closePath();
+    this.context.stroke();
+  }
 }
