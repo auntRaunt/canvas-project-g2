@@ -56,4 +56,8 @@ class PaintFunction {
   onMouseUp() {}
   onMouseLeave() {}
   onMouseEnter() {}
+  clear() {
+    this.contextReal.clearRect(0, 0, canvasReal.width, canvasReal.height);
+    this.contextDraft.clearRect(0, 0, canvasReal.width, canvasReal.height);
+  }
 }
