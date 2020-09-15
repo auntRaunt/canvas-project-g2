@@ -23,7 +23,6 @@ $(() => {
   });
 
   $("#clear").click(() => {
-    currentFunction.clear();
-    // currentFunction = null;
+    contextReal.clearRect(0, 0, canvasDraft.width, canvasDraft.height);;
   });
 });

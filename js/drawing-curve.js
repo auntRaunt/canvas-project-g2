@@ -20,7 +20,10 @@ class DrawingCurve extends PaintFunction {
   onDragging(coord, event) {
     if (this.firstLineIsDrawn) {
       this.contextDraft.clearRect(0, 0, canvasReal.width, canvasReal.height);
-      // this.contextReal.clearRect(0, 0, canvasReal.width, canvasReal.height);
+      this.contextDraft.lineJoin = "round";
+      this.contextDraft.lineCap = "round";
+      this.contextDraft.strokeStyle = canvasSettings.colorStroke;
+      this.contextDraft.lineWidth = canvasSettings.brushSize;
       this.contextDraft.beginPath();
       this.contextDraft.moveTo(this.origX, this.origY);
       this.contextDraft.quadraticCurveTo(
@@ -31,7 +34,10 @@ class DrawingCurve extends PaintFunction {
       );
       this.contextDraft.stroke();
     } else {
-      //2.
+      this.contextDraft.lineJoin = "round";
+      this.contextDraft.lineCap = "round";
+      this.contextDraft.strokeStyle = canvasSettings.colorStroke;
+      this.contextDraft.lineWidth = canvasSettings.brushSize;
       this.contextDraft.clearRect(0, 0, canvasReal.width, canvasReal.height);
       this.contextDraft.beginPath();
       this.contextDraft.moveTo(this.origX, this.origY);
@@ -40,9 +46,13 @@ class DrawingCurve extends PaintFunction {
     }
   }
 
-  onMouseMove() {}
+  onMouseMove() { }
   onMouseUp(coord, event) {
     if (this.firstLineIsDrawn) {
+      this.contextReal.lineJoin = "round";
+      this.contextReal.lineCap = "round";
+      this.contextReal.strokeStyle = canvasSettings.colorStroke;
+      this.contextReal.lineWidth = canvasSettings.brushSize;
       this.contextDraft.clearRect(0, 0, canvasReal.width, canvasReal.height);
       this.contextReal.beginPath();
       this.contextReal.moveTo(this.origX, this.origY);
@@ -55,6 +65,10 @@ class DrawingCurve extends PaintFunction {
       this.contextReal.stroke();
       this.firstLineIsDrawn = false;
     } else {
+      this.contextReal.lineJoin = "round";
+      this.contextReal.lineCap = "round";
+      this.contextReal.strokeStyle = canvasSettings.colorStroke;
+      this.contextReal.lineWidth = canvasSettings.brushSize;
       this.endX = coord[0];
       this.endY = coord[1];
       this.contextDraft.clearRect(0, 0, canvasReal.width, canvasReal.height);
@@ -65,6 +79,6 @@ class DrawingCurve extends PaintFunction {
       this.firstLineIsDrawn = true;
     }
   }
-  onMouseLeave() {}
-  onMouseEnter() {}
+  onMouseLeave() { }
+  onMouseEnter() { }
 }

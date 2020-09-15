@@ -27,7 +27,7 @@
                 <div class="button"><i class="fas fa-draw-polygon fa-2x" id="drawing-polygon"></i></div>
                 <div class="button"> <i class="fas fa-minus fa-2x" id="drawing-s-line"></i></div>
                 <div class="button"><i class="far fa-circle fa-2x" id="drawing-circle"></i></div>
-                <div class="button"><i class="far fa-trash-alt fa-2x"></i></div>
+                <div class="button"><i class="far fa-trash-alt fa-2x" id="clear"></i></div>
             </div>
             <div class="buttons-middle buttons-grid">
                 <div class="button">
@@ -36,10 +36,16 @@
                 <div class="button">
                     <img src="images/line-thickness.png" alt="line-thickness">
                 </div>
+                <div class="button">
+                    <input type="range" min="1" max="51" value="5" step="1" id="brush-size"> <!-- Brush Size  These three are a bit messy, you might want to clean up their positioning etc.-->
+                </div>
                 <div class="button"></div>
-                <div class="button"></div>
-                <div class="button"></div>
-                <div class="button"></div>
+                <div class="button">  
+                    <input type="color" value="#000000" id="fill-color"> Fill Color <!-- Fill Color  -->
+                </div>
+                <div class="button">
+                    <input type="color" value="#000000" id="stroke-color">Brush Color <!-- Brush Color  -->
+                </div>
             </div>
             <div class="buttons-down buttons-grid">
                 <div class="button"></div>
@@ -65,6 +71,9 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js"
         integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script src="js/canvas-common.js" type="text/javascript" async defer></script>
+    <script src="js/function.js" type="text/javascript" async defer></script>
+    <script src="js/canvas-settings.js" type="text/javascript" async defer></script> <!-- Canvas Settings  -->
+
     <script src="js/canvasConfig.js" type="text/javascript" async defer></script>
     <script src="js/drawing-line.js" type="text/javascript" async defer></script>
     <script src="js/drawing-circle.js" type="text/javascript" async defer></script>
@@ -74,32 +83,6 @@
     <script src="js/drawing-s-line.js" type="text/javascript" async defer></script>
     <script src="js/drawing-square.js" type="text/javascript" async defer></script>
     <script src="js/drawing-triangle.js" type="text/javascript" async defer></script>
-    <script type="text/javascript">
-        $(() => {
-            currentFunction = new DrawingLine(contextReal)
-            $("#drawing-rectangle").click(() => {
-                currentFunction = new DrawingRectangle(contextReal, contextDraft);
-            });
-            $("#drawing-line").click(() => {
-                currentFunction = new DrawingLine(contextReal);
-            });
-            $('#drawing-s-line').click(() => {
-                currentFunction = new DrawingStriaghtLine(contextReal, contextDraft);
-            })
-            $('#drawing-curve').click(() => {
-                currentFunction = new DrawingCurve(contextReal, contextDraft);
-            })
-            $('#drawing-circle').click(() => {
-                currentFunction = new DrawingCircle(contextReal, contextDraft);
-            })
-            $('#drawing-triangle').click(() => {
-                currentFunction = new DrawingTriangle(contextReal, contextDraft);
-            })
-            $('#drawing-erase').click(() => {
-                currentFunction = new Erase(contextReal, contextDraft);
-            })
-        })
-    </script>
 
 </body>
 
