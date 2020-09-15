@@ -27,7 +27,8 @@
                 <div class="button"><i class="fas fa-draw-polygon fa-2x" id="drawing-polygon"></i></div>
                 <div class="button"> <i class="fas fa-minus fa-2x" id="drawing-s-line"></i></div>
                 <div class="button"><i class="far fa-circle fa-2x" id="drawing-circle"></i></div>
-                <div class="button"><i class="far fa-trash-alt fa-2x"></i></div>
+                <div class="button"><i class="fas fa-bezier-curve fa-2x" id="drawing-b-curve"></i></div>
+                <div class="button"><img src="images/text.png" alt="text" id="drawing-text"></div>
             </div>
             <div class="buttons-middle buttons-grid">
                 <div class="button">
@@ -44,15 +45,14 @@
             <div class="buttons-down buttons-grid">
                 <div class="button"></div>
                 <div class="button"></div>
-                <div class="button"></div>
-                <div class="button"></div>
+                <div class="button"><i class="fas fa-download fa-2x" id="drawing-download"></i></div>
+                <div class=" button"><i class="far fa-trash-alt fa-2x" id="drawing-clear"></i></div>
                 <div class="button">
-                    <i class="fas fa-undo fa-2x" id="undo"></i>
+                    <i class="fas fa-undo fa-2x" id="drawing-undo"></i>
                 </div>
                 <div class="button">
-                    <i class="fas fa-redo fa-2x" id="redo"></i>
+                    <i class="fas fa-redo fa-2x" id="drawing-redo"></i>
                 </div>
-
             </div>
         </div>
 
@@ -74,6 +74,7 @@
     <script src="js/drawing-s-line.js" type="text/javascript" async defer></script>
     <script src="js/drawing-square.js" type="text/javascript" async defer></script>
     <script src="js/drawing-triangle.js" type="text/javascript" async defer></script>
+    <script src="js/drawing-text.js" type="text/javascript" async defer></script>
     <script type="text/javascript">
         $(() => {
             currentFunction = new DrawingLine(contextReal)
@@ -92,11 +93,54 @@
             $('#drawing-circle').click(() => {
                 currentFunction = new DrawingCircle(contextReal, contextDraft);
             })
+            $('#drawing-square').click(() => {
+                currentFunction = new DrawingSquare(contextReal, contextDraft);
+            })
             $('#drawing-triangle').click(() => {
                 currentFunction = new DrawingTriangle(contextReal, contextDraft);
             })
+            $('#drawing-text').click(() => {
+                currentFunction = new DrawingText(contextReal, contextDraft);
+            })
             $('#drawing-erase').click(() => {
                 currentFunction = new Erase(contextReal, contextDraft);
+            })
+            $('#drawing-undo').click(() => {
+                if (cStep > 0) {
+                    cStep--;
+                    let canvasPic = new Image();
+                    canvasPic.src = cPushArray[cStep];
+                    contextReal.clearRect(
+                        0,
+                        0,
+                        contextReal.canvas.width,
+                        contextReal.canvas.height
+                    );
+                    canvasPic.onload = function () {
+                        contextReal.drawImage(canvasPic, 0, 0);
+                    };
+                }
+            })
+            $('#drawing-redo').click(() => {
+                if (cStep < cPushArray.length - 1) {
+                    cStep++;
+                    let canvasPic = new Image();
+                    canvasPic.src = cPushArray[cStep];
+                    canvasPic.onload = function () { contextReal.drawImage(canvasPic, 0, 0); }
+                }
+            })
+            $('#drawing-clear').click(() => {
+                contextReal.clearRect(0, 0, canvasReal.width, canvasReal.height);
+                contextDraft.clearRect(0, 0, canvasReal.width, canvasReal.height);
+            })
+            $("#drawing-download").click(() => {
+                let image = canvasReal.toDataURL();
+                let tempLink = document.createElement('a');
+                tempLink.download = "image.png";
+                tempLink.href = image;
+                document.body.appendChild(tempLink);
+                tempLink.click();
+                document.body.removeChild(tempLink);
             })
         })
     </script>

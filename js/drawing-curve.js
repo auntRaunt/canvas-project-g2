@@ -54,6 +54,7 @@ class DrawingCurve extends PaintFunction {
       );
       this.contextReal.stroke();
       this.firstLineIsDrawn = false;
+      cPush();
     } else {
       this.endX = coord[0];
       this.endY = coord[1];
@@ -63,6 +64,7 @@ class DrawingCurve extends PaintFunction {
       this.contextDraft.lineTo(this.endX, this.endY);
       this.contextDraft.stroke();
       this.firstLineIsDrawn = true;
+      cPush();
     }
   }
   onMouseLeave() {}

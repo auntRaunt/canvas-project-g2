@@ -51,6 +51,7 @@ class DrawingTriangle extends PaintFunction {
       this.contextReal.lineTo(line2[0], line2[1]);
       this.contextReal.stroke();
       this.firstLineIsDrawnTriangle = false;
+      cPush();
     } else {
       this.contextDraft.clearRect(0, 0, canvasReal.width, canvasReal.height);
       this.contextReal.beginPath();
@@ -60,6 +61,7 @@ class DrawingTriangle extends PaintFunction {
       line2 = [coord[0], coord[1]];
       this.contextReal.stroke();
       this.firstLineIsDrawnTriangle = true;
+      cPush();
     }
   }
   onMouseLeave() {}

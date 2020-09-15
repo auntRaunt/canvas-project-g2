@@ -5,13 +5,29 @@ let contextDraft = canvasDraft.getContext("2d");
 let currentFunction;
 let dragging = false;
 
+// For Undo and Redo
+let cPushArray = new Array();
+let cStep = -1;
+
+function cPush() {
+  cStep++;
+  if (cStep < cPushArray.length) {
+    cPushArray.length = cStep;
+  }
+  cPushArray.push(canvasReal.toDataURL());
+}
+
 $("#undo").click(() => {
-  canvasConfig.undo();
+  canvasConfig.undoObject.undoAction();
 });
 
-$("#redo").click(() => {
-  console.log(cPushArray);
-});
+$("#redo").click(() => {});
+
+//Download image
+let download_img = function (el) {
+  var image = canvas.toDataURL("image/jpg");
+  el.href = image;
+};
 
 $("#canvas-draft").mousedown(function (e) {
   let mouseX = e.offsetX;
@@ -60,18 +76,3 @@ class PaintFunction {
   onMouseLeave() {}
   onMouseEnter() {}
 }
-
-// function resizeCanvas() {
-//   canvasReal.style.width = window.innerWidth + "px";
-//   canvasDraft.style.width = window.innerWidth + "px";
-//   setTimeout(function () {
-//     canvasReal.style.height = window.innerHeight + "px";
-//     canvasDraft.style.height = window.innerHeight + "px";
-//   }, 0);
-// }
-
-// // Webkit/Blink will fire this on load, but Gecko doesn't.
-// window.onresize = resizeCanvas;
-
-// // So we fire it manually...
-// resizeCanvas();

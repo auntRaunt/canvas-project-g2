@@ -22,6 +22,7 @@ class Erase extends PaintFunction {
     this.context.beginPath();
     this.context.moveTo(coord[0], coord[1]);
     this.draw(coord[0], coord[1]);
+    cPush();
   }
   onDragging(coord, event) {
     this.draw(coord[0], coord[1]);
