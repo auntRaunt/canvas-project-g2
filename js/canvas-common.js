@@ -5,6 +5,14 @@ let contextDraft = canvasDraft.getContext("2d");
 let currentFunction;
 let dragging = false;
 
+$("#undo").click(() => {
+  canvasConfig.undo();
+});
+
+$("#redo").click(() => {
+  console.log(cPushArray);
+});
+
 $("#canvas-draft").mousedown(function (e) {
   let mouseX = e.offsetX;
   let mouseY = e.offsetY;
