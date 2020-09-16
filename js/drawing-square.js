@@ -29,7 +29,7 @@ class DrawingSquare extends PaintFunction {
     this.contextReal.lineWidth = canvasSettings.brushSize;
     this.contextReal.fillStyle = canvasSettings.colorFill;
     this.contextReal.strokeStyle = canvasSettings.colorStroke;
-    this.contextReal.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
+    this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
     this.contextReal.fillRect(
       this.origX,
       this.origY,
