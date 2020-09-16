@@ -22,11 +22,14 @@ function midpoint(a, b) {
     let y = parseInt(b);
     midpointArray.push(x);
     midpointArray.push(y);
-    console.log(x);
-    console.log(y);
-    midpointArray.sort();
+    console.log(x + "x");
+    console.log(y + "y");
+    midpointArray.sort(function (c, d) {
+        return c - d;
+    });
     let z = (Math.abs(midpointArray[1] - midpointArray[0])) / 2;
-    console.log(z);
+    console.log(z + "z");
+    console.log(midpointArray);
     console.log(midpointArray[0] + z);
     return midpointArray[0] + z;
 }
