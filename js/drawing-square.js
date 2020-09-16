@@ -21,6 +21,12 @@ class DrawingSquare extends PaintFunction {
       coord[0] - this.origX,
       coord[0] - this.origX,
     );
+    this.contextDraft.strokeRect(
+      this.origX,
+      this.origY,
+      coord[0] - this.origX,
+      coord[0] - this.origX,
+    );
   }
 
   onMouseMove() {}
@@ -31,6 +37,12 @@ class DrawingSquare extends PaintFunction {
     this.contextReal.strokeStyle = canvasSettings.colorStroke;
     this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
     this.contextReal.fillRect(
+      this.origX,
+      this.origY,
+      coord[0] - this.origX,
+      coord[0] - this.origX,
+    );
+    this.contextReal.strokeRect(
       this.origX,
       this.origY,
       coord[0] - this.origX,

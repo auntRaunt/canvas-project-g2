@@ -1,33 +1,33 @@
+
 var canvasSettings = {
-    colorStroke: $("#stroke-color").val(),
-    colorFill: $("#fill-color").val(),
-    brushSize: $('#brush-size').val(),
-    backgroundColor: $('#background-color').val(),
-    textsize: $('#text-size').val(),
-    textfont: "Arial",
+  colorStroke: $("#stroke-color").val(),
+  colorFill: $("#fill-color").val(),
+  brushSize: $('#brush-size').val(),
+  backgroundColor: $('#background-color').val(),
+  textsize: $('#text-size').val(),
+  textfont: "Arial",
+  backgroundColorSet: false,
 }
 
-backgroundColorSet = false,
-
-$('#text-size')[0].oninput = function() {
-    canvasSettings.textsize = this.value;
+$('#text-size')[0].oninput = function () {
+  canvasSettings.textsize = this.value;
 }
 
 $('#brush-size')[0].oninput = function () {
-        canvasSettings.brushSize = this.value;
+  canvasSettings.brushSize = this.value;
 }
 
 $('#stroke-color')[0].oninput = function () {
-    canvasSettings.colorStroke = this.value;
+  canvasSettings.colorStroke = this.value;
 }
 
 $('#fill-color')[0].oninput = function () {
-    canvasSettings.colorFill = this.value;
+  canvasSettings.colorFill = this.value;
 }
 
 $('#background-color')[0].oninput = function () {
-    canvasSettings.backgroundColor = this.value;
-    backgroundColorSet = true;
+  canvasSettings.backgroundColor = this.value;
+  backgroundColorSet = true;
 }
 
 $("#background-color-set").click(() => {
@@ -100,3 +100,4 @@ We might want to put this in a seperate js file.
 
 
 */
+

@@ -50,6 +50,12 @@ class DrawingRectangle extends PaintFunction {
       coord[0] - this.origX,
       coord[1] - this.origY
     );
+    this.contextReal.strokeRect(
+      this.origX,
+      this.origY,
+      coord[0] - this.origX,
+      coord[1] - this.origY
+    );
     cPush();
   }
   onMouseLeave() {}
