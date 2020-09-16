@@ -21,6 +21,8 @@ body {
 }
 
 .canvas-container {
+  min-height: 100%;
+  min-width: 100%;
   position: relative;
 }
 
@@ -45,6 +47,7 @@ body {
 
 .buttons-up {
   border: 1px solid black;
+  
 }
 
 .buttons-middle {
