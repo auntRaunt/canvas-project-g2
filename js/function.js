@@ -27,6 +27,9 @@ $(() => {
   $("#drawing-bezier").click(() => {
     currentFunction = new DrawingBezier(contextReal, contextDraft);
   });
+  $("#drawing-polygon").click(() => {
+    currentFunction = new DrawingPolygon(contextReal, contextDraft);
+  });
   $("#drawing-erase").click(() => {
     currentFunction = new Erase(contextReal, contextDraft);
   });

@@ -6,12 +6,14 @@ class DrawingSquare extends PaintFunction {
   }
 
   onMouseDown(coord, event) {
-    this.contextReal.fillStyle = "#f44";
     this.origX = coord[0];
     this.origY = coord[1];
   }
   onDragging(coord, event) {
-    this.contextDraft.fillStyle = "#f44";
+    this.contextDraft.lineCap = "round";
+    this.contextDraft.lineWidth = canvasSettings.brushSize;
+    this.contextDraft.fillStyle = canvasSettings.colorFill;
+    this.contextDraft.strokeStyle = canvasSettings.colorStroke;
     this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
     this.contextDraft.fillRect(
       this.origX,
@@ -23,7 +25,11 @@ class DrawingSquare extends PaintFunction {
 
   onMouseMove() {}
   onMouseUp(coord) {
-    this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
+    this.contextReal.lineCap = "round";
+    this.contextReal.lineWidth = canvasSettings.brushSize;
+    this.contextReal.fillStyle = canvasSettings.colorFill;
+    this.contextReal.strokeStyle = canvasSettings.colorStroke;
+    this.contextReal.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
     this.contextReal.fillRect(
       this.origX,
       this.origY,
