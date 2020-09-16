@@ -34,7 +34,7 @@ class DrawingPolygon extends PaintFunction {
         this.movingCount = 1;
 
     } else if (this.movingCount === 1){
-        if (Math.pow((this.firstOrigX - coord[0]),2)<700 && Math.pow((this.firstOrigY - coord[1]),2)<700){
+        if (Math.pow((this.firstOrigX - coord[0]),2)<700 && Math.pow((this.firstOrigY - coord[1]),2)<2000){
             dragging = false;
             this.contextDraft.clearRect(0,0,canvasDraft.width,canvasDraft.height);
             this.contextReal.lineTo(this.firstOrigX,this.firstOrigY);

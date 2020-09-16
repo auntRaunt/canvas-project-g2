@@ -41,11 +41,11 @@ Set background color using the color palette.
 
 Click background-color-set to set the color.
 
-The color is set only for whatever is behind the present shapes on the canvas. 
+The color is set only for whatever is behind the present shapes on the canvas.
 
 Therefore, if a background color has previously been set, a new one cannot be set without first clearing the entire page.
 
-We might want to put this in a seperate js file. 
+We might want to put this in a seperate js file.
 
 
 */
