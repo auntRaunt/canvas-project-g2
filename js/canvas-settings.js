@@ -1,28 +1,34 @@
 var canvasSettings = {
-  colorStroke: $("#stroke-color").val(),
-  colorFill: $("#fill-color").val(),
-  brushSize: $("#brush-size").val(),
-  backgroundColor: $("#background-color").val(),
-};
+    colorStroke: $("#stroke-color").val(),
+    colorFill: $("#fill-color").val(),
+    brushSize: $('#brush-size').val(),
+    backgroundColor: $('#background-color').val(),
+    textsize: $('#text-size').val(),
+    textfont: "Arial",
+}
 
-(backgroundColorSet = false),
-  ($("#brush-size")[0].oninput = function () {
-    canvasSettings.brushSize = this.value;
-  });
+backgroundColorSet = false,
 
-$("#stroke-color")[0].oninput = function () {
-  canvasSettings.colorStroke = this.value;
-};
+$('#text-size')[0].oninput = function() {
+    canvasSettings.textsize = this.value;
+}
 
-$("#fill-color")[0].oninput = function () {
-  canvasSettings.colorFill = this.value;
-};
+$('#brush-size')[0].oninput = function () {
+        canvasSettings.brushSize = this.value;
+}
 
-$("#background-color")[0].oninput = function (e) {
-  //   displayText("background-color");
-  canvasSettings.backgroundColor = this.value;
-  backgroundColorSet = true;
-};
+$('#stroke-color')[0].oninput = function () {
+    canvasSettings.colorStroke = this.value;
+}
+
+$('#fill-color')[0].oninput = function () {
+    canvasSettings.colorFill = this.value;
+}
+
+$('#background-color')[0].oninput = function () {
+    canvasSettings.backgroundColor = this.value;
+    backgroundColorSet = true;
+}
 
 $("#background-color-set").click(() => {
   contextReal.fillStyle = canvasSettings.backgroundColor;

@@ -1,9 +1,3 @@
-// Default settings
-let curStroke = "rgba(255, 0, 0, 1)";
-let curFill = "rgba(128, 128, 128, 1)";
-let curFont = "90px Arial";
-let curFontSize = 50;
-
 class DrawingText extends PaintFunction {
   constructor(contextReal, contextDraft) {
     super();
@@ -25,8 +19,8 @@ class DrawingText extends PaintFunction {
       this.origX = coord[0];
       this.origY = coord[1];
 
-      this.contextDraft.font = curFont;
-      this.contextDraft.fillStyle = curFill;
+      this.contextDraft.font = `${canvasSettings.textsize}px ${canvasSettings.textfont}`;
+      this.contextDraft.fillStyle = canvasSettings.colorFill;
 
       var textContent = textInput.value;
       textInput.style["z-index"] = 1;
@@ -42,8 +36,8 @@ class DrawingText extends PaintFunction {
         padding: "0",
       });
 
-      this.contextReal.font = curFont;
-      this.contextReal.fillStyle = curFill;
+      this.contextReal.font = `${canvasSettings.textsize}px ${canvasSettings.textfont}`;
+      this.contextReal.fillStyle = canvasSettings.colorFill;
 
       var textContent = textInput.value;
       textInput.style["z-index"] = 6;
@@ -53,7 +47,7 @@ class DrawingText extends PaintFunction {
       this.contextReal.fillText(
         textContent,
         this.origX,
-        this.origY + curFontSize * 1.05
+        this.origY
       );
       this.clickNumber = 0;
     }
