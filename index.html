@@ -2,149 +2,101 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Canvas Project</title>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
-        integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canvas Project</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+    integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <!-- <h1 style="text-align: center">Canvas Project, <span>completed by Martin Choi</span></h1> -->
-    <div class="container">
-        <div class="buttons">
-            <div class="buttons-up buttons-grid">
-                <div class="button"><i class="fas fa-pencil-alt fa-2x" id="drawing-line"></i></div>
-                <div class="button"><img src="images/rectangle1.png" alt="rectangle" id="drawing-rectangle"></div>
-                <div class="button"><img src="images/curved-line.png" alt="curved-line" id="drawing-curve"></div>
-                <div class="button"><img src="images/triangle.png" alt="triangle" id="drawing-triangle"></div>
-                <div class="button"><i class="far fa-square fa-2x" id="drawing-square"></i></div>
-                <div class="button"> <i class="fas fa-eraser fa-2x" id="drawing-erase"></i>
-                </div>
-                <div class="button"><i class="fas fa-draw-polygon fa-2x" id="drawing-polygon"></i></div>
-                <div class="button"> <i class="fas fa-minus fa-2x" id="drawing-s-line"></i></div>
-                <div class="button"><i class="far fa-circle fa-2x" id="drawing-circle"></i></div>
-                <div class="button"><i class="fas fa-bezier-curve fa-2x" id="drawing-b-curve"></i></div>
-                <div class="button"><img src="images/text.png" alt="text" id="drawing-text"></div>
-            </div>
-            <div class="buttons-middle buttons-grid">
-                <div class="button">
-                    <i class="fas fa-paint-brush fa-2x"></i>
-                </div>
-                <div class="button">
-                    <img src="images/line-thickness.png" alt="line-thickness">
-                </div>
-                <div class="button"></div>
-                <div class="button"></div>
-                <div class="button"></div>
-                <div class="button"></div>
-            </div>
-            <div class="buttons-down buttons-grid">
-                <div class="button"></div>
-                <div class="button"></div>
-                <div class="button"><i class="fas fa-download fa-2x" id="drawing-download"></i></div>
-                <div class=" button"><i class="far fa-trash-alt fa-2x" id="drawing-clear"></i></div>
-                <div class="button">
-                    <i class="fas fa-undo fa-2x" id="drawing-undo"></i>
-                </div>
-                <div class="button">
-                    <i class="fas fa-redo fa-2x" id="drawing-redo"></i>
-                </div>
-            </div>
+  <!-- <h1 style="text-align: center">Canvas Project, <span>completed by Martin Choi</span></h1> -->
+  <div class="container">
+    <div class="buttons">
+      <div class="buttons-up buttons-grid">
+        <div class="button"><i class="fas fa-pencil-alt fa-2x" id="drawing-line"></i></div>
+        <div class="button"><img src="images/rectangle1.png" alt="rectangle" id="drawing-rectangle"></div>
+        <div class="button"><img src="images/curved-line.png" alt="curved-line" id="drawing-curve"></div>
+        <div class="button"><img src="images/triangle.png" alt="triangle" id="drawing-triangle"></div>
+        <div class="button"><i class="far fa-square fa-2x" id="drawing-square"></i></div>
+        <div class="button"> <i class="fas fa-eraser fa-2x" id="drawing-erase"></i>
         </div>
-
-        <div class="canvas-container">
-            <canvas id="canvas-real" class="canvas" width="1440" height="800"></canvas>
-            <canvas id="canvas-draft" class="canvas" width="1440" height="800"></canvas>
+        <div class="button"><i class="fas fa-draw-polygon fa-2x" id="drawing-polygon"></i></div>
+        <div class="button"> <i class="fas fa-minus fa-2x" id="drawing-s-line"></i></div>
+        <div class="button"><i class="far fa-circle fa-2x" id="drawing-circle"></i></div>
+        <div class="button"><i class="fas fa-bezier-curve fa-2x" id="drawing-bezier"></i></div>
+        <div class="button"><img src="images/text.png" alt="text" id="drawing-text"></div>
+      </div>
+      <div class="buttons-middle buttons-grid">
+        <div class="button">
+          <i class="fas fa-paint-brush fa-2x"></i>
         </div>
+        <div class="button">
+          <img src="images/line-thickness.png" alt="line-thickness">
+        </div>
+        <div class="button">
+          <input type="range" min="1" max="51" value="5" step="1" id="brush-size">
+          <!-- Brush Size  These three are a bit messy, you might want to clean up their positioning etc.-->
+        </div>
+        <div class="button">
+          <input type="color" value="#000000" id="fill-color"> Fill Color
+          <!-- Fill Color  -->
+        </div>
+        <div class="button">
+          <input type="color" value="#000000" id="stroke-color">Brush Color
+          <!-- Brush Color  -->
+        </div>
+        <div class="button">
+          <input type="color" value="#000000" id="background-color">Background Color
+          <!-- Background Color  -->
+        </div>
+        <div class="button"></div>
+        <div class="button"></div>
+        <div class="button"></div>
+        <div class="button"></div>
+        <div class="button"></div>
+        <div class="button"></div>
+        <div class="button"></div>
+        <div class="button"></div>
+      </div>
+      <div class="buttons-down buttons-grid">
+        <div class="button"><i class="fas fa-download fa-2x" id="drawing-download"></i></div>
+        <div class=" button"><i class="far fa-trash-alt fa-2x" id="drawing-clear"></i></div>
+        <div class="button">
+          <i class="fas fa-undo fa-2x" id="drawing-undo"></i>
+        </div>
+        <div class="button">
+          <i class="fas fa-redo fa-2x" id="drawing-redo"></i>
+        </div>
+      </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.js"
-        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-    <script src="js/canvas-common.js" type="text/javascript" async defer></script>
-    <script src="js/canvasConfig.js" type="text/javascript" async defer></script>
-    <script src="js/drawing-line.js" type="text/javascript" async defer></script>
-    <script src="js/drawing-circle.js" type="text/javascript" async defer></script>
-    <script src="js/drawing-curve.js" type="text/javascript" async defer></script>
-    <script src="js/drawing-erase.js" type="text/javascript" async defer></script>
-    <script src="js/drawing-rectangle.js" type="text/javascript" async defer></script>
-    <script src="js/drawing-s-line.js" type="text/javascript" async defer></script>
-    <script src="js/drawing-square.js" type="text/javascript" async defer></script>
-    <script src="js/drawing-triangle.js" type="text/javascript" async defer></script>
-    <script src="js/drawing-text.js" type="text/javascript" async defer></script>
-    <script type="text/javascript">
-        $(() => {
-            currentFunction = new DrawingLine(contextReal)
-            $("#drawing-rectangle").click(() => {
-                currentFunction = new DrawingRectangle(contextReal, contextDraft);
-            });
-            $("#drawing-line").click(() => {
-                currentFunction = new DrawingLine(contextReal);
-            });
-            $('#drawing-s-line').click(() => {
-                currentFunction = new DrawingStriaghtLine(contextReal, contextDraft);
-            })
-            $('#drawing-curve').click(() => {
-                currentFunction = new DrawingCurve(contextReal, contextDraft);
-            })
-            $('#drawing-circle').click(() => {
-                currentFunction = new DrawingCircle(contextReal, contextDraft);
-            })
-            $('#drawing-square').click(() => {
-                currentFunction = new DrawingSquare(contextReal, contextDraft);
-            })
-            $('#drawing-triangle').click(() => {
-                currentFunction = new DrawingTriangle(contextReal, contextDraft);
-            })
-            $('#drawing-text').click(() => {
-                currentFunction = new DrawingText(contextReal, contextDraft);
-            })
-            $('#drawing-erase').click(() => {
-                currentFunction = new Erase(contextReal, contextDraft);
-            })
-            $('#drawing-undo').click(() => {
-                if (cStep > 0) {
-                    cStep--;
-                    let canvasPic = new Image();
-                    canvasPic.src = cPushArray[cStep];
-                    contextReal.clearRect(
-                        0,
-                        0,
-                        contextReal.canvas.width,
-                        contextReal.canvas.height
-                    );
-                    canvasPic.onload = function () {
-                        contextReal.drawImage(canvasPic, 0, 0);
-                    };
-                }
-            })
-            $('#drawing-redo').click(() => {
-                if (cStep < cPushArray.length - 1) {
-                    cStep++;
-                    let canvasPic = new Image();
-                    canvasPic.src = cPushArray[cStep];
-                    canvasPic.onload = function () { contextReal.drawImage(canvasPic, 0, 0); }
-                }
-            })
-            $('#drawing-clear').click(() => {
-                contextReal.clearRect(0, 0, canvasReal.width, canvasReal.height);
-                contextDraft.clearRect(0, 0, canvasReal.width, canvasReal.height);
-            })
-            $("#drawing-download").click(() => {
-                let image = canvasReal.toDataURL();
-                let tempLink = document.createElement('a');
-                tempLink.download = "image.png";
-                tempLink.href = image;
-                document.body.appendChild(tempLink);
-                tempLink.click();
-                document.body.removeChild(tempLink);
-            })
-        })
-    </script>
+    <div class="canvas-container">
+      <canvas id="canvas-real" class="canvas" width="1440" height="800"></canvas>
+      <canvas id="canvas-draft" class="canvas" width="1440" height="800"></canvas>
+      <input id="textInput" name="inputField" value="" style="display: none"></input>
+    </div>
+  </div>
 
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"></script>
+  <script src="js/canvas-common.js" type="text/javascript" async defer></script>
+  <script src="js/canvas-settings.js" type="text/javascript" async defer></script>
+  <script src="js/canvasConfig.js" type="text/javascript" async defer></script>
+  <script src="js/drawing-line.js" type="text/javascript" async defer></script>
+  <script src="js/drawing-circle.js" type="text/javascript" async defer></script>
+  <script src="js/drawing-curve.js" type="text/javascript" async defer></script>
+  <script src="js/drawing-erase.js" type="text/javascript" async defer></script>
+  <script src="js/drawing-rectangle.js" type="text/javascript" async defer></script>
+  <script src="js/drawing-s-line.js" type="text/javascript" async defer></script>
+  <script src="js/drawing-square.js" type="text/javascript" async defer></script>
+  <script src="js/drawing-triangle.js" type="text/javascript" async defer></script>
+  <script src="js/drawing-text.js" type="text/javascript" async defer></script>
+  <script src="js/drawing-bezier.js" type="text/javascript" async defer></script>
+  <script src="js/function.js" type="text/javascript" async defer></script>
 </body>
 
 </html>

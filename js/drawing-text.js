@@ -1,12 +1,14 @@
+// Default settings
+let curStroke = "rgba(255, 0, 0, 1)";
+let curFill = "rgba(128, 128, 128, 1)";
+let curFont = "90px Arial";
+let curFontSize = 50;
+
 class DrawingText extends PaintFunction {
   constructor(contextReal, contextDraft) {
     super();
     this.contextReal = contextReal;
     this.contextDraft = contextDraft;
-    this.fontWeight = 600;
-    this.fontSize = 35;
-    this.fontStyle = "Arial";
-    this.fillStyle = "orange";
     this.clickNumber = 0;
   }
 
@@ -22,6 +24,10 @@ class DrawingText extends PaintFunction {
 
       this.origX = coord[0];
       this.origY = coord[1];
+
+      this.contextDraft.font = curFont;
+      this.contextDraft.fillStyle = curFill;
+
       var textContent = textInput.value;
       textInput.style["z-index"] = 1;
       textInput.value = "";
@@ -29,11 +35,15 @@ class DrawingText extends PaintFunction {
       this.contextDraft.fillText(textContent, this.origX, this.origY);
       this.clickNumber++;
     } else if (this.clickNumber === 1) {
-      $("#textInput").css({ display: "none" });
+      $("#textInput").css({
+        display: "none",
+        transform:
+          "translateY(" + coord[1] + "px)translateX(" + coord[0] + "px)",
+        padding: "0",
+      });
 
-      this.contextReal.strokeStyle = "white";
-      this.contextReal.fillStyle = "orange";
-      this.contextReal.lineWidth = 10;
+      this.contextReal.font = curFont;
+      this.contextReal.fillStyle = curFill;
 
       var textContent = textInput.value;
       textInput.style["z-index"] = 6;
@@ -43,7 +53,7 @@ class DrawingText extends PaintFunction {
       this.contextReal.fillText(
         textContent,
         this.origX,
-        this.origY + 35 * 1.05
+        this.origY + curFontSize * 1.05
       );
       this.clickNumber = 0;
     }
