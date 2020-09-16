@@ -1,5 +1,5 @@
-let line1 = ["if you are reading this, something has gone wronng."];
-let line2 = ["if you are reading this, something has gone wronng."];
+let line1 = ["if you are reading this, something has gone wrong."];
+let line2 = ["if you are reading this, something has gone wrong."];
 
 class DrawingTriangle extends PaintFunction {
   constructor(contextReal, contextDraft) {

@@ -24,7 +24,7 @@ $('#background-color')[0].oninput = function() {
     contextReal.fillRect(0, 0, canvasDraft.width, canvasDraft.height);
 }
 
-
+// Set the index of the background color to a lesser number, to keep it behind the shapes.
 
 
 

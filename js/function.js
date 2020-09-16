@@ -12,6 +12,9 @@ $(() => {
   $("#drawing-curve").click(() => {
     currentFunction = new DrawingCurve(contextReal, contextDraft);
   });
+  $("#drawing-bezier").click(() => {
+    currentFunction = new DrawingBezier(contextReal, contextDraft);
+  });
   $("#drawing-circle").click(() => {
     currentFunction = new DrawingCircle(contextReal, contextDraft);
   });
