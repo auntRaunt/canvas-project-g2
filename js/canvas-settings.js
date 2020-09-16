@@ -4,13 +4,19 @@ var canvasSettings = {
     colorFill: $("#fill-color").val(),
     brushSize: $('#brush-size').val(),
     backgroundColor: $('#background-color').val(),
+    textsize: $('#text-size').val(),
+    textfont: "Arial",
 }
 
 backgroundColorSet = false,
 
-    $('#brush-size')[0].oninput = function () {
+$('#text-size')[0].oninput = function() {
+    canvasSettings.textsize = this.value;
+}
+
+$('#brush-size')[0].oninput = function () {
         canvasSettings.brushSize = this.value;
-    }
+}
 
 $('#stroke-color')[0].oninput = function () {
     canvasSettings.colorStroke = this.value;
