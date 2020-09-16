@@ -1,20 +1,3 @@
-/*
-
-start, cp1, cp2, end
-
-So, Bezier relies on 3 click events instead of 2 listed here, and has 2 control points instead of just 1.
-
-Instead of firstLineIsDrawn, institute a clickCounter which does the initial line at 0, the CP1 at 1, and the CP2 and 2. 
-
-
-
-On click 0 - create a straight line
-On click 1 - create a Bezier line - CP2 is set to the halfway point of the two first points.
-On click 2 - create a Bezier line with the saved attributes from earlier
-
-
-
-*/
 
 function midpoint(a, b) {
     let midpointArray = [];
