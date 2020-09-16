@@ -18,7 +18,7 @@
   <div class="container">
     <div class="buttons">
       <div class="buttons-up buttons-grid">
-        <div class="button"><i class="fas fa-pencil-alt fa-2x" id="drawing-line"></i></div>
+        <div class="button" id="button-draw-line"><i class="fas fa-pencil-alt fa-2x" id="drawing-line"></i></div>
         <div class="button"><img src="images/rectangle1.png" alt="rectangle" id="drawing-rectangle"></div>
         <div class="button"><img src="images/curved-line.png" alt="curved-line" id="drawing-curve"></div>
         <div class="button"><img src="images/triangle.png" alt="triangle" id="drawing-triangle"></div>
@@ -33,31 +33,23 @@
       </div>
       <hr>
       <div class="buttons-middle buttons-grid">
-        <div class="button">
-          <input type="range" min="1" max="51" value="5" step="1" id="brush-size">
-          <!-- Brush Size  These three are a bit messy, you might want to clean up their positioning etc.-->
-        </div>
-        <div class="button">
-          <input type="color" value="#000000" id="fill-color"> Fill Color
+          <div class="button">
+          <input type="color" value="#000000" id="fill-color"> <p>Fill Color</p>
           <!-- Fill Color  -->
         </div>
         <div class="button">
-          <input type="color" value="#000000" id="stroke-color">Brush Color
+          <input type="color" value="#000000" id="stroke-color"><p>Brush Color</p>
           <!-- Brush Color  -->
         </div>
         <div class="button">
-          <input type="color" value="#000000" id="background-color">Background Color
+          <input type="color" value="#000000" id="background-color"><p>Background Color</p>
           <!-- Background Color  -->
         </div>
         <div class="button">
-          <input type="range" min="10" max="99" value="49" step="1" id="text-size">Text Size
+          <input type="range" min="10" max="99" value="49" step="1" id="text-size"><p>Text Size</p>
           <!-- text Color  -->
         </div>
         <div class="button"><img src="images/text.png" alt="text" id="background-color-set"></div>
-        <div class="button"></div>
-        <div class="button"></div>
-        <div class="button"></div>
-        <div class="button"></div>
         <div class="button"></div>
         <div class="button"></div>
       </div>

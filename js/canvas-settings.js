@@ -47,7 +47,6 @@ function displayText(id) {
     case "drawing-curve":
       displayText.textContent =
         "Click and drag out to create a straight line. Release the mouse button, then click and drag out again to create the curve in that line.";
-
       break;
     case "drawing-bezier":
       displayText.textContent =
