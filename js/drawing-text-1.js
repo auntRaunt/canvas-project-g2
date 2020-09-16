@@ -3,19 +3,23 @@ class DrawingText extends PaintFunction {
     super();
     this.contextReal = contextReal;
     this.contextDraft = contextDraft;
-    this.fontWeight = 600;
-    this.fontSize = 35;
-    this.fontStyle = "Arial";
-    this.fillStyle = "orange";
   }
 
+  onMouseDown(coord, event) {
+    this.origX = coord[0];
+    this.origY = coord[1];
+  }
+  onMouseMove(coord, event) {
+    this.contextDraft.beginPath();
+    this.contextDraft.rect(this.origX, this.origY, 500, 100);
+    this.contextDraft.stroke();
+  }
   onMouseUp(coord, event) {
-    
+    this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
+    this.contextReal.beginPath();
+    this.contextReal.rect(this.origX, this.origY, 500, 100);
+    this.contextReal.stroke();
   }
-  onMouseDown(coord,event) {
-    this.contextDraft.
-  }
-  onMouseMove() {}
   onMouseLeave() {}
   onMouseEnter() {}
 }
