@@ -1,144 +1,213 @@
 $(() => {
   currentFunction = new DrawingLine(contextReal);
-  $("#drawing-rectangle").click(() => {
-    currentFunction = new DrawingRectangle(contextReal, contextDraft);
-  });
-  $("#drawing-line").click((e) => {
-    let id = e.target.id;
-    displayText(id);
-    currentFunction = new DrawingLine(contextReal);
-  });
-  $("#drawing-s-line").click(() => {
-    currentFunction = new DrawingStriaghtLine(contextReal, contextDraft);
-  });
-  $("#drawing-curve").click((e) => {
-    let id = e.target.id;
-    displayText(id);
-    currentFunction = new DrawingCurve(contextReal, contextDraft);
-  });
-  $("#drawing-circle").click(() => {
-    currentFunction = new DrawingCircle(contextReal, contextDraft);
-  });
-  $("#drawing-square").click(() => {
-    currentFunction = new DrawingSquare(contextReal, contextDraft);
-  });
-  $("#drawing-triangle").click((e) => {
-    let id = e.target.id;
-    displayText(id);
-    currentFunction = new DrawingTriangle(contextReal, contextDraft);
-  });
-  $("#drawing-text").click((e) => {
-    let id = e.target.id;
-    displayText(id);
-    currentFunction = new DrawingText(contextReal, contextDraft);
-  });
-  $("#drawing-bezier").click((e) => {
-    let id = e.target.id;
-    displayText(id);
-    currentFunction = new DrawingBezier(contextReal, contextDraft);
-  });
-  $("#drawing-polygon").click((e) => {
-    let id = e.target.id;
-    displayText(id);
-    currentFunction = new DrawingPolygon(contextReal, contextDraft);
-  });
-  $("#drawing-erase").click(() => {
-    currentFunction = new Erase(contextReal, contextDraft);
-  });
-  $("#drawing-undo").click((e) => {
-    let id = e.target.id;
-    displayText(id);
-    if (cStep > 0) {
-      cStep--;
-      let canvasPic = new Image();
-      canvasPic.src = cPushArray[cStep];
-      contextReal.clearRect(
-        0,
-        0,
-        contextReal.canvas.width,
-        contextReal.canvas.height
-      );
-      canvasPic.onload = function () {
-        contextReal.drawImage(canvasPic, 0, 0);
-      };
-    }
-  });
-  $("#drawing-redo").click((e) => {
-    let id = e.target.id;
-    displayText(id);
-    if (cStep < cPushArray.length - 1) {
-      cStep++;
-      let canvasPic = new Image();
-      canvasPic.src = cPushArray[cStep];
-      canvasPic.onload = function () {
-        contextReal.drawImage(canvasPic, 0, 0);
-      };
-    }
-  });
-  $("#drawing-clear").click((e) => {
-    let id = e.target.id;
-    displayText(id);
-    canvasSettings.backgroundColor = "#ffffff";
-    contextReal.clearRect(0, 0, canvasReal.width, canvasReal.height);
-    contextDraft.clearRect(0, 0, canvasReal.width, canvasReal.height);
-  });
-  $("#drawing-download").click((e) => {
-    let id = e.target.id;
-    displayText(id);
-    let image = canvasReal.toDataURL();
-    let tempLink = document.createElement("a");
-    tempLink.download = "image.png";
-    tempLink.href = image;
-    document.body.appendChild(tempLink);
-    tempLink.click();
-    document.body.removeChild(tempLink);
-  });
+  $("#drawing-rectangle")
+    .click(() => {
+      currentFunction = new DrawingRectangle(contextReal, contextDraft);
+    })
+    .hover(function (e) {
+      displayText("drawing-rectangle");
+      displayTaskName(e.target.id);
+    });
+
+  $("#drawing-line")
+    .click((e) => {
+      currentFunction = new DrawingLine(contextReal);
+    })
+    .hover(function (e) {
+      displayText("drawing-line");
+    });
+
+  $("#drawing-s-line")
+    .click(() => {
+      currentFunction = new DrawingStriaghtLine(contextReal, contextDraft);
+    })
+    .hover(function (e) {
+      displayText("drawing-s-line");
+      displayTaskName(e.target.id);
+    });
+
+  $("#drawing-curve")
+    .click((e) => {
+      currentFunction = new DrawingCurve(contextReal, contextDraft);
+    })
+    .hover(function (e) {
+      displayText("drawing-curve");
+      displayTaskName(e.target.id);
+    });
+
+  $("#drawing-circle")
+    .click(() => {
+      currentFunction = new DrawingCircle(contextReal, contextDraft);
+    })
+    .hover(function (e) {
+      displayText("drawing-circle");
+      displayTaskName(e.target.id);
+    });
+
+  $("#drawing-square")
+    .click(() => {
+      currentFunction = new DrawingSquare(contextReal, contextDraft);
+    })
+    .hover(function (e) {
+      displayText("drawing-square");
+      displayTaskName(e.target.id);
+    });
+
+  $("#drawing-triangle")
+    .click((e) => {
+      currentFunction = new DrawingTriangle(contextReal, contextDraft);
+    })
+    .hover(function (e) {
+      displayText("drawing-triangle");
+      displayTaskName(e.target.id);
+    });
+
+  $("#drawing-text")
+    .click((e) => {
+      currentFunction = new DrawingText(contextReal, contextDraft);
+    })
+    .hover(function (e) {
+      displayText("drawing-text");
+      displayTaskName(e.target.id);
+    });
+
+  $("#drawing-bezier")
+    .click((e) => {
+      currentFunction = new DrawingBezier(contextReal, contextDraft);
+    })
+    .hover(function (e) {
+      displayText("drawing-bezier");
+      displayTaskName(e.target.id);
+    });
+
+  $("#drawing-polygon")
+    .click((e) => {
+      currentFunction = new DrawingPolygon(contextReal, contextDraft);
+    })
+    .hover(function (e) {
+      displayText("drawing-polygon");
+      displayTaskName(e.target.id);
+    });
+
+  $("#drawing-erase")
+    .click(() => {
+      currentFunction = new Erase(contextReal, contextDraft);
+    })
+    .hover(function (e) {
+      displayText("drawing-erase");
+      displayTaskName(e.target.id);
+    });
+
+  $("#drawing-undo")
+    .click((e) => {
+      if (cStep > 0) {
+        cStep--;
+        let canvasPic = new Image();
+        canvasPic.src = cPushArray[cStep];
+        contextReal.clearRect(
+          0,
+          0,
+          contextReal.canvas.width,
+          contextReal.canvas.height
+        );
+        canvasPic.onload = function () {
+          contextReal.drawImage(canvasPic, 0, 0);
+        };
+      }
+    })
+    .hover(function () {
+      displayText("drawing-undo");
+    });
+
+  $("#drawing-redo")
+    .click((e) => {
+      if (cStep < cPushArray.length - 1) {
+        cStep++;
+        let canvasPic = new Image();
+        canvasPic.src = cPushArray[cStep];
+        canvasPic.onload = function () {
+          contextReal.drawImage(canvasPic, 0, 0);
+        };
+      }
+    })
+    .hover(function () {
+      displayText("drawing-redo");
+    });
+
+  $("#drawing-clear")
+    .click((e) => {
+      canvasSettings.backgroundColor = "#ffffff";
+      $("#background-color").val("#ffffff");
+      contextReal.clearRect(0, 0, canvasReal.width, canvasReal.height);
+      contextDraft.clearRect(0, 0, canvasReal.width, canvasReal.height);
+    })
+    .hover(function () {
+      displayText("drawing-clear");
+    });
+
+  $("#drawing-download")
+    .click((e) => {
+      let image = canvasReal.toDataURL();
+      let tempLink = document.createElement("a");
+      tempLink.download = "image.png";
+      tempLink.href = image;
+      document.body.appendChild(tempLink);
+      tempLink.click();
+      document.body.removeChild(tempLink);
+    })
+    .hover(function () {
+      displayText("drawing-download");
+    });
 });
 
-//Hovering effect
-$("#drawing-line").mouseover((e) => {
-  displayTaskName(e.target.id);
+
+//hovering text animation
+$("#btn-drawing-line").hover(() => {
+  displayTaskName("drawing-line");
 });
 
-$("#drawing-rectangle").mouseover((e) => {
-  displayTaskName(e.target.id);
+$("#btn-drawing-rectangle").hover(() => {
+  displayTaskName("drawing-rectangle");
 });
 
-$("#drawing-curve").mouseover((e) => {
-  displayTaskName(e.target.id);
+$("#btn-drawing-curve").hover(() => {
+  displayTaskName("drawing-curve");
 });
 
-$("#drawing-triangle").mouseover((e) => {
-  displayTaskName(e.target.id);
+$("#btn-drawing-triangle").hover(() => {
+  displayTaskName("drawing-triangle");
 });
 
-$("#drawing-square").mouseover((e) => {
-  displayTaskName(e.target.id);
+$("#btn-drawing-square").hover(() => {
+  displayTaskName("drawing-square");
 });
 
-$("#drawing-erase").mouseover((e) => {
-  displayTaskName(e.target.id);
+$("#btn-drawing-erase").hover(() => {
+  displayTaskName("drawing-erase");
 });
 
-$("#drawing-polygon").mouseover((e) => {
-  displayTaskName(e.target.id);
+$("#btn-drawing-polygon").hover(() => {
+  displayTaskName("drawing-polygon");
 });
 
-$("#drawing-s-line").mouseover((e) => {
-  displayTaskName(e.target.id);
+$("#btn-drawing-s-line").hover(() => {
+  displayTaskName("drawing-s-line");
 });
 
-$("#drawing-circle").mouseover((e) => {
-  displayTaskName(e.target.id);
+$("#btn-drawing-circle").hover(() => {
+  displayTaskName("drawing-circle");
 });
 
-$("#drawing-bezier").mouseover((e) => {
-  displayTaskName(e.target.id);
+$("#btn-drawing-bezier").hover(() => {
+  displayTaskName("drawing-bezier");
 });
 
-$("#drawing-text").mouseover((e) => {
-  displayTaskName(e.target.id);
+$("#btn-drawing-text").hover(() => {
+  displayTaskName("drawing-text");
 });
+
+
+
 
 
 

@@ -19,6 +19,10 @@ body {
   position: relative;
 }
 
+.display-container {
+  position: relative;
+}
+
 .canvas {
   position: absolute;
   border: 1px solid black;
@@ -52,7 +56,7 @@ body {
 }
 
 .button {
-  width: 70px;
+  width: 50px;
   text-align: center;
   position: relative;
 }
