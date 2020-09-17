@@ -57,3 +57,8 @@ class DrawingText extends PaintFunction {
   onMouseLeave() {}
   onMouseEnter() {}
 }
+
+let test1 = {test : "test1"}
+var test2 = {test: "test2"}
+
+

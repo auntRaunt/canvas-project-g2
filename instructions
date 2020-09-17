@@ -1,0 +1,108 @@
+Basic:
+
+Drawing Line
+
+- Click and drag continuously to draw lines.
+
+Erase
+
+- Click and drag to erase what's on the canvas. The erase color will automatically be set to the background color. 
+
+
+
+
+Basic Shapes:
+
+Drawing Rectangle
+
+- Click and drag to draw out your rectangle. Release the mouse button to finish the drawing.
+
+Drawing Circle
+
+- Click and drag to draw out your circle. Release the mouse button to finish the drawing.
+
+Drawing Square
+
+- Click and drag to draw out your square. Release the mouse button to finish the drawing.
+
+
+
+
+
+Complex Shapes:
+
+Drawing Triangle 
+
+- Click and drag out to create a straight line - this straight line will represent the first side and two corners of your triangle. Release, then click and drag out again to set the third corner and subsequent two sides of your triangle. The triangle can have no fill color.
+
+Drawing Polygon
+
+- Click to set the first point of the polygon. The polygon lines will follow your mouse, click again to set another point of the polygon. You can set as many points of the polygon as you desire within the canvas. Finish the Polygon by clicking the starting point again - the polygon will close and become a complete shape. The polygon can have no fill color. 
+
+
+
+
+
+Complex Lines:
+
+Drawing Straight Line
+
+- Click and drag continuously to draw out the line. This will create a straight line from the initial point of clicking to your mouse. Release the mouse button to finish the drawing.
+
+Drawing Curve
+
+- Click and drag out to create a straight line. Release the mouse button, then click and drag out again to create the curve in that line.
+
+Drawing Bezier
+
+- Click and drag out to create a straight line. Release the mouse button, then click and drag out again to create the first control point of the bezier line. Release again, then click and drag out to create the second point of the bezier line.
+
+
+
+
+Utilities:
+
+Clear
+
+- Click to clear the canvas, and set it as a white background.
+
+Download
+
+- Click to download what's on the canvas as a picture.
+
+Undo
+
+- Click to undo the last action taken on the canvas. Undo can reach up to 3 actions backwards.
+
+Redo
+
+- Click to redo the last action taken on the canvas. Redo can reach up to 3 actions forwards.
+
+
+
+
+Settings:
+
+Line Width
+
+- Move the slider to change the width of the lines on the canvas. Maximum width is 51 pixels, minimum width is 1 pixel. Line width applies to the eraser, all lines and to the outer border of all shapes.
+
+Line color
+
+- Choose your desired line color from the palette, or write in your color values. Values can be changed between RGB, Hexademical, or others using the button on the bottom right of the input box. Line color applies to all lines and to the outer border of all shapes.
+
+Fill color
+
+- Choose your desired fill color from the palette, or write in your color values. Values can be changed between RGB, Hexademical, or others using the button on the bottom right of the input box. Fill color applies to the inside of basic shapes. 
+
+Background color
+
+- Choose your desired fill color from the palette, or write in your color values. Values can be changed between RGB, Hexademical, or others using the button on the bottom right of the input box. When your color has been chosen, click the 'change background color' button. To change background color again, you must clear the screen. Changing the background color also changes the eraser color. 
+
+
+
+
+
+
+
+

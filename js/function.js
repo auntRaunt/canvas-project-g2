@@ -78,7 +78,7 @@ $(() => {
   $("#drawing-clear").click((e) => {
     let id = e.target.id;
     displayText(id);
-    canvasSettings.backgroundColor = '#ffffff';
+    canvasSettings.backgroundColor = "#ffffff";
     contextReal.clearRect(0, 0, canvasReal.width, canvasReal.height);
     contextDraft.clearRect(0, 0, canvasReal.width, canvasReal.height);
   });
@@ -94,3 +94,52 @@ $(() => {
     document.body.removeChild(tempLink);
   });
 });
+
+//Hovering effect
+$("#drawing-line").mouseover((e) => {
+  displayTaskName(e.target.id);
+});
+
+$("#drawing-rectangle").mouseover((e) => {
+  displayTaskName(e.target.id);
+});
+
+$("#drawing-curve").mouseover((e) => {
+  displayTaskName(e.target.id);
+});
+
+$("#drawing-triangle").mouseover((e) => {
+  displayTaskName(e.target.id);
+});
+
+$("#drawing-square").mouseover((e) => {
+  displayTaskName(e.target.id);
+});
+
+$("#drawing-erase").mouseover((e) => {
+  displayTaskName(e.target.id);
+});
+
+$("#drawing-polygon").mouseover((e) => {
+  displayTaskName(e.target.id);
+});
+
+$("#drawing-s-line").mouseover((e) => {
+  displayTaskName(e.target.id);
+});
+
+$("#drawing-circle").mouseover((e) => {
+  displayTaskName(e.target.id);
+});
+
+$("#drawing-bezier").mouseover((e) => {
+  displayTaskName(e.target.id);
+});
+
+$("#drawing-text").mouseover((e) => {
+  displayTaskName(e.target.id);
+});
+
+
+
+

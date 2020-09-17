@@ -8,7 +8,7 @@ class DrawingLine extends PaintFunction {
   // On mouse down, ensure that the pen has these features
   onMouseDown(coord, event) {
     this.context.lineJoin = "round";
-    this.context.lineCap = "round"; // lines 11-13 are added for canvas-settings.js
+    this.context.lineCap = "round"; 
     this.context.strokeStyle = canvasSettings.colorStroke; 
     this.context.lineWidth = canvasSettings.brushSize;
     this.context.beginPath();
