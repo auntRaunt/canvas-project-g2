@@ -39,7 +39,6 @@ class DrawingPolygon extends PaintFunction {
             this.contextDraft.clearRect(0,0,canvasDraft.width,canvasDraft.height);
             this.contextReal.lineTo(this.firstOrigX,this.firstOrigY);
             this.contextReal.stroke();
-            this.polygonFillTest();
             this.movingCount = 0;
         } else {
             this.newX = coord[0];
@@ -50,12 +49,6 @@ class DrawingPolygon extends PaintFunction {
                
         }
     }
-  }
-  polygonFillTest(){
-    this.contextReal.beginPath();
-    this.contextReal.moveTo(this.pointsArr[0].x,this.pointsArr[0].y);
-    this.contextReal.fill();
-    this.contextReal.stroke();  
   }
 
   onDragging(coord, event) {
