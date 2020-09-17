@@ -17,6 +17,10 @@ body {
   position: relative;
 }
 
+.display-container {
+  position: relative;
+}
+
 .canvas {
   position: absolute;
   border: 1px solid black;
